@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
@@ -65,7 +66,7 @@ export function CreateSchedule() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader
         title="Create Class Schedule"
         description="Add new class sections to the timetable"
@@ -134,6 +135,6 @@ export function CreateSchedule() {
         </div>
       </Modal>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

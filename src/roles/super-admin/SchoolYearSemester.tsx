@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus, Check } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
@@ -43,7 +44,7 @@ export function SchoolYearSemester() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="School Year & Semester" description="Manage academic calendar periods" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -118,6 +119,6 @@ export function SchoolYearSemester() {
         <div className="flex justify-end gap-3"><Button variant="secondary" onClick={() => setSemModal(false)}>Cancel</Button><Button onClick={addSemester}>Add</Button></div>
       </Modal>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

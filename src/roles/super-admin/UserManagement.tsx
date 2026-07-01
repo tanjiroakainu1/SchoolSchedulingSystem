@@ -1,14 +1,23 @@
 import { useState } from 'react';
 import { Plus, Trash2, Edit } from 'lucide-react';
 import { PageHeader } from '../../components/ui/StatsCard';
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { Badge } from '../../components/ui/Badge';
 import { Modal } from '../../components/ui/Modal';
 import { DataTable, FormField, inputClass, selectClass } from '../../components/ui/DataTable';
 import { UserManagementCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 import { useToast } from '../../hooks/useToast';
 import type { UserRole } from '../../types';
+
+const roleBadgeVariant: Record<UserRole, 'primary' | 'info' | 'success' | 'accent'> = {
+  'super-admin': 'primary',
+  registrar: 'info',
+  faculty: 'success',
+  student: 'accent',
+};
 
 const roleOptions: { value: UserRole; label: string }[] = [
   { value: 'super-admin', label: 'Super Admin' },
@@ -65,13 +74,11 @@ export function UserManagement() {
     name: u.name,
     email: u.email,
     role: (
-      <span className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700 capitalize">
-        {u.role.replace('-', ' ')}
-      </span>
+      <Badge variant={roleBadgeVariant[u.role]}>{u.role.replace('-', ' ')}</Badge>
     ),
     actions: (
       <div className="flex gap-2">
-        <button onClick={() => openEdit(u.id)} className="p-1 text-blue-600 hover:bg-blue-50 rounded">
+        <button onClick={() => openEdit(u.id)} className="p-1 text-primary-600 hover:bg-primary-50 rounded">
           <Edit size={16} />
         </button>
         <button onClick={() => handleDelete(u.id)} className="p-1 text-red-600 hover:bg-red-50 rounded">
@@ -82,7 +89,7 @@ export function UserManagement() {
   }));
 
   return (
-    <div>
+    <PageShell>
       <PageHeader
         title="User & Role Management"
         description="Register users and assign roles"
@@ -124,6 +131,6 @@ export function UserManagement() {
         </div>
       </Modal>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

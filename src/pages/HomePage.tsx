@@ -36,7 +36,7 @@ export function HomePage() {
   return (
     <PublicLayout variant="light" className="bg-white">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-indigo-950 text-white">
+      <section className="relative overflow-hidden brand-mesh-dark text-white">
         <PublicMeshBackground />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
@@ -49,7 +49,7 @@ export function HomePage() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.08]">
                 School Scheduling
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-sky-300 to-indigo-300 mt-2">
+                <span className="block brand-gradient-text mt-2">
                   System
                 </span>
               </h1>
@@ -92,10 +92,10 @@ export function HomePage() {
           {/* Hero stats */}
           <div className="mt-14 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {[
-              { label: 'User Roles', value: '4', icon: Users, grad: 'from-violet-500/20 to-purple-600/5' },
-              { label: 'Schedule Tools', value: '20+', icon: Calendar, grad: 'from-blue-500/20 to-cyan-600/5' },
-              { label: 'Conflict Checks', value: 'Auto', icon: Shield, grad: 'from-emerald-500/20 to-teal-600/5' },
-              { label: 'Notifications', value: 'Live', icon: Bell, grad: 'from-amber-500/20 to-orange-600/5' },
+              { label: 'User Roles', value: '4', icon: Users, grad: 'from-primary-500/25 to-accent-500/10' },
+              { label: 'Schedule Tools', value: '20+', icon: Calendar, grad: 'from-emerald-500/20 to-teal-600/5' },
+              { label: 'Conflict Checks', value: 'Auto', icon: Shield, grad: 'from-accent-500/20 to-accent-600/5' },
+              { label: 'Notifications', value: 'Live', icon: Bell, grad: 'from-primary-400/20 to-accent-400/5' },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -134,7 +134,7 @@ export function HomePage() {
                     <div className="flex items-start gap-4">
                       <div className={`relative shrink-0 w-12 h-12 rounded-2xl ${step.bgColor} ${step.color} flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform`}>
                         <Icon size={22} />
-                        <span className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-primary-600 to-indigo-600 text-white text-xs rounded-full flex items-center justify-center font-bold shadow-md">
+                        <span className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-primary-600 to-accent-500 text-white text-xs rounded-full flex items-center justify-center font-bold shadow-md">
                           {step.step}
                         </span>
                       </div>
@@ -178,12 +178,12 @@ export function HomePage() {
               const caps = roleCapabilities[role.value] ?? [];
               const topGrad =
                 role.value === 'super-admin'
-                  ? 'from-purple-500 to-violet-600'
+                  ? 'from-primary-600 to-primary-800'
                   : role.value === 'registrar'
-                    ? 'from-blue-500 to-cyan-500'
+                    ? 'from-teal-500 to-emerald-600'
                     : role.value === 'faculty'
-                      ? 'from-emerald-500 to-teal-500'
-                      : 'from-amber-500 to-orange-500';
+                      ? 'from-emerald-500 to-primary-600'
+                      : 'from-accent-400 to-accent-600';
               return (
                 <div
                   key={role.value}
@@ -249,8 +249,8 @@ export function HomePage() {
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
-                { icon: Calendar, label: 'Schedule Management', desc: 'Create & update class timetables', color: 'bg-blue-50 text-blue-600' },
-                { icon: Users, label: 'User Management', desc: 'Roles, registration & profiles', color: 'bg-violet-50 text-violet-600' },
+                { icon: Calendar, label: 'Schedule Management', desc: 'Create & update class timetables', color: 'bg-primary-50 text-primary-600' },
+                { icon: Users, label: 'User Management', desc: 'Roles, registration & profiles', color: 'bg-primary-50 text-primary-700' },
                 { icon: Building2, label: 'Classroom Tracking', desc: 'Capacity & availability', color: 'bg-emerald-50 text-emerald-600' },
                 { icon: LayoutDashboard, label: 'Live Dashboards', desc: 'Charts & analytics per role', color: 'bg-amber-50 text-amber-600' },
               ].map((item) => (
@@ -271,7 +271,7 @@ export function HomePage() {
       </section>
 
       {/* AI Chatbot */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-indigo-950 via-primary-900 to-purple-950 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary-950 via-primary-900 to-accent-950 text-white relative overflow-hidden">
         <PublicMeshBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
@@ -300,7 +300,7 @@ export function HomePage() {
 
             <div className="bg-white/10 backdrop-blur-xl rounded-3xl ring-1 ring-white/20 p-6 sm:p-8 shadow-2xl animate-float">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-400 to-indigo-500 flex items-center justify-center shadow-lg ring-2 ring-white/20">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center shadow-lg ring-2 ring-white/20">
                   <Bot size={24} className="text-white" />
                 </div>
                 <div>
@@ -315,7 +315,7 @@ export function HomePage() {
                 <div className="bg-white/10 rounded-2xl rounded-bl-md p-3.5 text-sm text-primary-100 leading-relaxed">
                   Hi! Ask me about the system, your schedule, or anything about education! 🎓
                 </div>
-                <div className="bg-gradient-to-br from-primary-500/40 to-indigo-600/40 rounded-2xl rounded-br-md p-3.5 text-sm text-white ml-6 ring-1 ring-white/10">
+                <div className="bg-gradient-to-br from-primary-500/40 to-accent-500/40 rounded-2xl rounded-br-md p-3.5 text-sm text-white ml-6 ring-1 ring-white/10">
                   What roles are available?
                 </div>
                 <div className="bg-white/10 rounded-2xl rounded-bl-md p-3.5 text-sm text-primary-100 leading-relaxed">
@@ -343,10 +343,10 @@ export function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-800 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-accent-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-400/25 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex p-4 rounded-2xl bg-white/10 ring-1 ring-white/20 mb-5">

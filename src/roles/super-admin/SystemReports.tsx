@@ -1,5 +1,6 @@
 import { Download, FileText } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { SystemReportsCharts, AnalyticsSectionHeader } from '../../components/charts';
@@ -23,7 +24,7 @@ export function SystemReports() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="System Reports" description="Generate system-wide reports and analytics" />
 
       <AnalyticsSectionHeader title="Report Analytics" description="Workload, rooms, subjects, conflicts & system trends" />
@@ -59,6 +60,6 @@ export function SystemReports() {
         </div>
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

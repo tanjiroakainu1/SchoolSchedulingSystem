@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Edit, Trash2 } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
@@ -47,7 +48,7 @@ export function ManageSections() {
       schedule: `${sec.day} ${sec.startTime}–${sec.endTime}`,
       actions: (
         <div className="flex gap-2">
-          <button onClick={() => openEdit(sec.id)} className="p-1 text-blue-600 hover:bg-blue-50 rounded"><Edit size={16} /></button>
+          <button onClick={() => openEdit(sec.id)} className="p-1 text-primary-600 hover:bg-primary-50 rounded"><Edit size={16} /></button>
           <button onClick={() => handleDelete(sec.id)} className="p-1 text-red-600 hover:bg-red-50 rounded"><Trash2 size={16} /></button>
         </div>
       ),
@@ -55,7 +56,7 @@ export function ManageSections() {
   });
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Manage Class Sections" description="Update and manage class section details" />
       <Card>
         <DataTable
@@ -76,6 +77,6 @@ export function ManageSections() {
         <div className="flex justify-end gap-3"><Button variant="secondary" onClick={() => setEditId(null)}>Cancel</Button><Button onClick={handleSave}>Save</Button></div>
       </Modal>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

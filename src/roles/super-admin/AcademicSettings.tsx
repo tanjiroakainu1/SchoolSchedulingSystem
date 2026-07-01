@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Save } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { FormField, inputClass } from '../../components/ui/DataTable';
@@ -22,7 +23,7 @@ export function AcademicSettings() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader
         title="Academic Settings"
         description="Configure institution-wide academic parameters"
@@ -67,6 +68,6 @@ export function AcademicSettings() {
         </Card>
       </div>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

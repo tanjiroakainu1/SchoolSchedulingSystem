@@ -1,5 +1,6 @@
 import { CheckCircle } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { DataTable } from '../../components/ui/DataTable';
@@ -22,7 +23,7 @@ export function ConflictResolution() {
       <span className={`px-2 py-1 text-xs rounded-full capitalize ${
         c.type === 'room' ? 'bg-red-100 text-red-700' :
         c.type === 'instructor' ? 'bg-amber-100 text-amber-700' :
-        'bg-blue-100 text-blue-700'
+        'bg-teal-100 text-teal-700'
       }`}>{c.type}</span>
     ),
     description: c.description,
@@ -39,7 +40,7 @@ export function ConflictResolution() {
   }));
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Schedule Conflicts" description="Detect and resolve scheduling conflicts" />
       <Card>
         <DataTable
@@ -53,6 +54,6 @@ export function ConflictResolution() {
         />
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

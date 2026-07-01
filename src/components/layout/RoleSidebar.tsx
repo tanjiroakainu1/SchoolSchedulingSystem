@@ -80,7 +80,7 @@ export function RoleSidebar({ navItems, basePath }: RoleSidebarProps) {
     <>
       {/* Brand */}
       <div className={`flex items-center gap-3 px-4 py-5 border-b border-gray-100 ${isCollapsed ? 'justify-center px-2' : ''}`}>
-        <div className="p-2 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl shadow-md shadow-primary-600/20 shrink-0">
+        <div className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl shadow-md shadow-primary-600/25 shrink-0">
           <GraduationCap className="text-white" size={20} />
         </div>
         {!isCollapsed && (
@@ -104,7 +104,7 @@ export function RoleSidebar({ navItems, basePath }: RoleSidebarProps) {
 
       {/* User card */}
       {user && !isCollapsed && (
-        <div className="mx-3 mt-4 p-3 rounded-xl bg-gray-50 border border-gray-100">
+        <div className="mx-3 mt-4 p-3.5 rounded-2xl bg-gradient-to-br from-primary-50/80 to-accent-50/50 border border-primary-100 shadow-sm">
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${roleConfig?.bgColor} ${roleConfig?.color}`}>
               {user.name.charAt(0)}
@@ -136,7 +136,7 @@ export function RoleSidebar({ navItems, basePath }: RoleSidebarProps) {
                   isCollapsed ? 'justify-center' : ''
                 } ${
                   isActive
-                    ? 'bg-primary-600 text-white shadow-md shadow-primary-600/25'
+                    ? 'bg-gradient-to-r from-primary-600 to-accent-500 text-white shadow-md shadow-primary-600/25'
                     : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                 }`
               }
@@ -213,7 +213,7 @@ export function RoleSidebar({ navItems, basePath }: RoleSidebarProps) {
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 z-50 h-full bg-white border-r border-gray-200 shadow-xl
+          fixed top-0 left-0 z-50 h-full bg-white/95 backdrop-blur-xl border-r border-gray-200 shadow-xl
           flex flex-col transition-all duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:relative lg:translate-x-0 lg:shadow-none lg:shrink-0 lg:z-auto

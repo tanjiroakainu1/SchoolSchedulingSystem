@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { DataTable } from '../../components/ui/DataTable';
 import { useAppData } from '../../context/AppDataContext';
@@ -11,7 +12,7 @@ export function AllSchedules() {
   const getRoom = (id: string) => classrooms.find((c) => c.id === id);
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="All Schedules" description="System-wide class schedule overview" />
       <Card>
         <DataTable
@@ -33,6 +34,6 @@ export function AllSchedules() {
           }))}
         />
       </Card>
-    </div>
+    </PageShell>
   );
 }

@@ -1,5 +1,6 @@
 import { Download, Printer } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { DataTable } from '../../components/ui/DataTable';
@@ -21,7 +22,7 @@ export function TimetableReports() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader
         title="Class Timetable Reports"
         description="Generate and export class timetable reports"
@@ -53,6 +54,6 @@ export function TimetableReports() {
         />
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

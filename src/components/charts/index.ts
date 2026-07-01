@@ -19,4 +19,6 @@ export {
   SystemReportsCharts,
   RegistrarOverviewCharts,
   FacultyDashboardCharts,
+  StudentDashboardCharts,
+  StudentWeeklyChart,
 } from './DashboardCharts';

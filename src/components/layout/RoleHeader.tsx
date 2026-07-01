@@ -48,7 +48,7 @@ export function RoleHeader() {
   };
 
   return (
-    <header className="glass border-b border-gray-200/80 sticky top-0 z-20 shrink-0">
+    <header className="glass border-b border-gray-200/80 sticky top-0 z-20 shrink-0 shadow-sm shadow-gray-200/50">
       <div className="px-3 sm:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-2">
           {/* Left: Hamburger + page context */}
@@ -75,7 +75,7 @@ export function RoleHeader() {
             <div className="relative" ref={notifRef}>
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                className="relative p-2.5 rounded-xl hover:bg-gray-100 text-gray-600 transition-colors"
+                className="relative p-2.5 rounded-xl hover:bg-primary-50 text-gray-600 hover:text-primary-700 transition-colors"
                 aria-label="Notifications"
               >
                 <Bell size={18} />

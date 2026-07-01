@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Save } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { DataTable, selectClass } from '../../components/ui/DataTable';
@@ -52,7 +53,7 @@ export function AssignClassrooms() {
   });
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Assign Classrooms" description="Assign rooms to class sections" />
       <Card>
         <DataTable
@@ -67,6 +68,6 @@ export function AssignClassrooms() {
         />
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

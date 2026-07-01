@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { DataTable } from '../../components/ui/DataTable';
 import { useAppData } from '../../context/AppDataContext';
@@ -10,7 +11,7 @@ export function ClassroomAssignments() {
   const enrolled = sections.filter((s) => subjectIds.includes(s.subjectId));
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Classroom Assignments" description="Rooms for your enrolled classes" />
       <Card>
         <DataTable
@@ -34,6 +35,6 @@ export function ClassroomAssignments() {
           })}
         />
       </Card>
-    </div>
+    </PageShell>
   );
 }

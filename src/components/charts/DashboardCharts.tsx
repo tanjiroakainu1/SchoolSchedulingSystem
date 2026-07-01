@@ -18,7 +18,7 @@ import {
   ComposedChart,
 } from 'recharts';
 import { ChartCard, ChartGradients } from './ChartCard';
-import { chartTooltipStyle } from '../../config/chartTheme';
+import { chartTooltipStyle, CHART_COLORS, DAY_ORDER } from '../../config/chartTheme';
 import {
   getUsersByRole,
   getDepartmentDistribution,
@@ -41,7 +41,7 @@ export function UsersByRoleChart() {
   const { users } = useAppData();
   const data = getUsersByRole(users);
   return (
-    <ChartCard title="Users by Role" subtitle="Role distribution across the system" accent="purple">
+    <ChartCard title="Users by Role" subtitle="Role distribution across the system" accent="amber">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
@@ -69,7 +69,7 @@ export function UsersByRoleChart() {
 export function SystemTrendChart() {
   const data = getSystemTrendData();
   return (
-    <ChartCard title="System Growth Pulse" subtitle="Users, schedules & conflicts over time" accent="indigo" height={300}>
+    <ChartCard title="System Growth Pulse" subtitle="Users, schedules & conflicts over time" accent="primary" height={300}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <ChartGradients />
@@ -78,8 +78,8 @@ export function SystemTrendChart() {
           <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
           <Tooltip {...chartTooltipStyle} />
           <Legend iconType="circle" wrapperStyle={{ fontSize: 11 }} />
-          <Area type="monotone" dataKey="users" stroke="#8b5cf6" fill="url(#areaUsers)" strokeWidth={2} name="Users" />
-          <Area type="monotone" dataKey="schedules" stroke="#3b82f6" fill="url(#areaSchedules)" strokeWidth={2} name="Schedules" />
+          <Area type="monotone" dataKey="users" stroke="#10b981" fill="url(#areaUsers)" strokeWidth={2} name="Users" />
+          <Area type="monotone" dataKey="schedules" stroke="#14b8a6" fill="url(#areaSchedules)" strokeWidth={2} name="Schedules" />
           <Line type="monotone" dataKey="conflicts" stroke="#f43f5e" strokeWidth={2} dot={{ r: 4, fill: '#f43f5e' }} name="Conflicts" />
         </AreaChart>
       </ResponsiveContainer>
@@ -91,7 +91,7 @@ export function EnrollmentCapacityChart() {
   const { sections } = useAppData();
   const data = getEnrollmentBySection(sections);
   return (
-    <ChartCard title="Section Enrollment" subtitle="Enrolled vs capacity per section" accent="blue">
+    <ChartCard title="Section Enrollment" subtitle="Enrolled vs capacity per section" accent="teal">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
@@ -99,7 +99,7 @@ export function EnrollmentCapacityChart() {
           <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
           <Tooltip {...chartTooltipStyle} />
           <Legend iconType="circle" wrapperStyle={{ fontSize: 11 }} />
-          <Bar dataKey="enrolled" fill="#3b82f6" radius={[6, 6, 0, 0]} name="Enrolled" />
+          <Bar dataKey="enrolled" fill="#14b8a6" radius={[6, 6, 0, 0]} name="Enrolled" />
           <Bar dataKey="capacity" fill="#c7d2fe" radius={[6, 6, 0, 0]} name="Capacity" />
         </BarChart>
       </ResponsiveContainer>
@@ -121,7 +121,7 @@ export function ScheduleHeatmapChart() {
           <Tooltip {...chartTooltipStyle} />
           <Legend iconType="circle" wrapperStyle={{ fontSize: 11 }} />
           <Bar yAxisId="left" dataKey="classes" fill="#10b981" radius={[6, 6, 0, 0]} name="Classes" />
-          <Line yAxisId="right" type="monotone" dataKey="students" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 4 }} name="Students" />
+          <Line yAxisId="right" type="monotone" dataKey="students" stroke="#10b981" strokeWidth={2} dot={{ r: 4 }} name="Students" />
         </ComposedChart>
       </ResponsiveContainer>
     </ChartCard>
@@ -182,7 +182,7 @@ export function UserGrowthChart() {
   const { users } = useAppData();
   const data = getUserGrowthData(users);
   return (
-    <ChartCard title="User Growth Wave" subtitle="Monthly registration trend" accent="purple">
+    <ChartCard title="User Growth Wave" subtitle="Monthly registration trend" accent="amber">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <ChartGradients />
@@ -190,7 +190,7 @@ export function UserGrowthChart() {
           <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
           <Tooltip {...chartTooltipStyle} />
-          <Area type="monotone" dataKey="count" stroke="#8b5cf6" fill="url(#areaUsers)" strokeWidth={3} name="Total Users" />
+          <Area type="monotone" dataKey="count" stroke="#10b981" fill="url(#areaUsers)" strokeWidth={3} name="Total Users" />
         </AreaChart>
       </ResponsiveContainer>
     </ChartCard>
@@ -222,7 +222,7 @@ export function RoomUtilizationChart() {
   const { classrooms, sections } = useAppData();
   const data = getRoomUtilization(classrooms, sections);
   return (
-    <ChartCard title="Room Utilization" subtitle="Capacity usage per classroom" accent="blue">
+    <ChartCard title="Room Utilization" subtitle="Capacity usage per classroom" accent="teal">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart cx="50%" cy="50%" innerRadius="20%" outerRadius="90%" data={data} startAngle={180} endAngle={0}>
           <RadialBar background dataKey="utilization" cornerRadius={8}>
@@ -242,7 +242,7 @@ export function SubjectPopularityChart() {
   const { sections, subjects } = useAppData();
   const data = getSubjectPopularity(sections, subjects);
   return (
-    <ChartCard title="Subject Popularity" subtitle="Total enrollment by subject" accent="indigo">
+    <ChartCard title="Subject Popularity" subtitle="Total enrollment by subject" accent="primary">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
@@ -282,7 +282,7 @@ export function ConflictTypeChart() {
 
 export function RegistrarOverviewCharts() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
       <ScheduleHeatmapChart />
       <EnrollmentCapacityChart />
       <ConflictStatusChart />
@@ -311,7 +311,7 @@ export function FacultyWeeklyLoadChart({ facultyId }: FacultyLoadChartProps) {
           <Tooltip {...chartTooltipStyle} />
           <Legend iconType="circle" wrapperStyle={{ fontSize: 11 }} />
           <Bar yAxisId="left" dataKey="classes" fill="#10b981" radius={[6, 6, 0, 0]} name="Classes" />
-          <Line yAxisId="right" type="monotone" dataKey="hours" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 4, fill: '#8b5cf6' }} name="Hours" />
+          <Line yAxisId="right" type="monotone" dataKey="hours" stroke="#10b981" strokeWidth={2} dot={{ r: 4, fill: '#10b981' }} name="Hours" />
         </ComposedChart>
       </ResponsiveContainer>
     </ChartCard>
@@ -323,7 +323,7 @@ export function FacultySubjectRadialChart({ facultyId }: FacultyLoadChartProps) 
   const mySections = sections.filter((s) => s.instructorId === facultyId);
   const data = mySections.map((s, i) => {
     const sub = subjects.find((subj) => subj.id === s.subjectId);
-    const palette = ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b'];
+    const palette = ['#10b981', '#14b8a6', '#eab308', '#f59e0b'];
     return {
       name: sub?.code ?? s.code,
       enrolled: s.enrolled,
@@ -334,14 +334,14 @@ export function FacultySubjectRadialChart({ facultyId }: FacultyLoadChartProps) 
 
   if (data.length === 0) {
     return (
-      <ChartCard title="Class Fill Rate" subtitle="Enrollment per your section" accent="blue">
+      <ChartCard title="Class Fill Rate" subtitle="Enrollment per your section" accent="teal">
         <div className="flex items-center justify-center h-full text-sm text-gray-400">No sections assigned</div>
       </ChartCard>
     );
   }
 
   return (
-    <ChartCard title="Class Fill Rate" subtitle="Enrollment utilization per section" accent="blue">
+    <ChartCard title="Class Fill Rate" subtitle="Enrollment utilization per section" accent="teal">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart cx="50%" cy="50%" innerRadius="25%" outerRadius="90%" data={data} startAngle={90} endAngle={-270}>
           <RadialBar background dataKey="utilization" cornerRadius={6}>
@@ -361,7 +361,7 @@ export function FacultySubjectRadialChart({ facultyId }: FacultyLoadChartProps) 
 
 export function SuperAdminCharts() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
       <SystemTrendChart />
       <UsersByRoleChart />
       <EnrollmentCapacityChart />
@@ -382,7 +382,7 @@ export function UserManagementCharts() {
 
 export function SystemReportsCharts() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
       <FacultyWorkloadChart />
       <RoomUtilizationChart />
       <SubjectPopularityChart />
@@ -395,10 +395,53 @@ export function SystemReportsCharts() {
 
 export function FacultyDashboardCharts({ facultyId }: FacultyLoadChartProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
       <FacultyWeeklyLoadChart facultyId={facultyId} />
       <FacultySubjectRadialChart facultyId={facultyId} />
       <EnrollmentCapacityChart />
+      <ScheduleHeatmapChart />
+    </div>
+  );
+}
+
+interface StudentChartsProps {
+  subjectIds: string[];
+}
+
+export function StudentWeeklyChart({ subjectIds }: StudentChartsProps) {
+  const { sections } = useAppData();
+  const mySections = sections.filter((s) => subjectIds.includes(s.subjectId));
+  const data = DAY_ORDER.map((day, i) => ({
+    name: day.slice(0, 3),
+    classes: mySections.filter((s) => s.day === day).length,
+    fill: Object.values(CHART_COLORS)[i % Object.values(CHART_COLORS).length],
+  }));
+
+  return (
+    <ChartCard title="My Class Week" subtitle="Your enrolled classes per day" accent="amber">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+          <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} allowDecimals={false} />
+          <Tooltip {...chartTooltipStyle} />
+          <Bar dataKey="classes" radius={[8, 8, 0, 0]} name="Classes">
+            {data.map((entry) => (
+              <Cell key={entry.name} fill={entry.fill} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+export function StudentDashboardCharts({ subjectIds }: StudentChartsProps) {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+      <StudentWeeklyChart subjectIds={subjectIds} />
+      <EnrollmentCapacityChart />
+      <SubjectPopularityChart />
       <ScheduleHeatmapChart />
     </div>
   );

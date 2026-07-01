@@ -1,5 +1,6 @@
 import { Mail } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { useAppData } from '../../context/AppDataContext';
 import { useStudentSubjectIds } from '../../hooks/useStudentSubjects';
@@ -11,7 +12,7 @@ export function InstructorInfo() {
   const instructorIds = [...new Set(enrolled.map((s) => s.instructorId))];
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Instructor Information" description="Faculty teaching your enrolled subjects" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {instructorIds.map((id) => {
@@ -35,6 +36,6 @@ export function InstructorInfo() {
           );
         })}
       </div>
-    </div>
+    </PageShell>
   );
 }

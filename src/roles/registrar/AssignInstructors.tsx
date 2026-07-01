@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Save } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { DataTable, selectClass } from '../../components/ui/DataTable';
@@ -48,7 +49,7 @@ export function AssignInstructors() {
   });
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Assign Instructors" description="Assign faculty to class sections" />
       <Card>
         <DataTable
@@ -62,6 +63,6 @@ export function AssignInstructors() {
         />
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

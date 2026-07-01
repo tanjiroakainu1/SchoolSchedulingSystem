@@ -43,7 +43,7 @@ export function PublicNavbar({ variant = 'light' }: PublicNavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16">
           <Link to="/" className="flex items-center gap-2.5 min-w-0 group">
-            <div className="p-2 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl shadow-lg shadow-primary-600/25 group-hover:scale-105 transition-transform">
+            <div className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl shadow-lg shadow-primary-600/25 group-hover:scale-105 transition-transform">
               <GraduationCap className="text-white" size={20} />
             </div>
             <div className="min-w-0 hidden sm:block">

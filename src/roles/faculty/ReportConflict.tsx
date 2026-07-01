@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AlertTriangle } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { FormField, inputClass, selectClass } from '../../components/ui/DataTable';
@@ -38,7 +39,7 @@ export function ReportConflict() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Report Schedule Conflict" description="Notify the registrar of scheduling issues" />
       <Card>
         <form onSubmit={handleSubmit} className="max-w-lg">
@@ -70,6 +71,6 @@ export function ReportConflict() {
         </form>
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

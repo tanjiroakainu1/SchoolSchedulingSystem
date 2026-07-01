@@ -1,16 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  /* Emerald — primary brand */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+  --color-primary-950: #022c22;
+
+  /* Amber / Yellow — accent */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  --color-accent-950: #451a03;
 }
 
 * {
@@ -27,14 +42,13 @@ body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
+  background-color: #f0fdf4;
 }
 
 #root {
   min-height: 100dvh;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -43,14 +57,13 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #a7f3d0;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #34d399;
 }
 
-/* Animations */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -63,7 +76,6 @@ body {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
 @keyframes slide-in-left {
   from { opacity: 0; transform: translateX(-16px); }
   to { opacity: 1; transform: translateX(0); }
@@ -79,9 +91,8 @@ body {
   animation: slide-in-left 0.3s ease-out both;
 }
 
-/* Developer credit effects */
 .dev-name {
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #2563eb);
+  background: linear-gradient(90deg, #059669, #f59e0b, #10b981);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -90,35 +101,33 @@ body {
 }
 
 .dev-name-glow {
-  text-shadow: 0 0 24px rgba(96, 165, 250, 0.35);
+  text-shadow: 0 0 24px rgba(52, 211, 153, 0.4);
 }
 
 .dev-grid {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fbbf24' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Glass effect */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Auth form inputs */
 .auth-input {
-  border: 1.5px solid #e5e7eb;
-  background: #fafafa;
+  border: 1.5px solid #d1fae5;
+  background: #f0fdf4;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .auth-input:hover {
-  border-color: #d1d5db;
+  border-color: #a7f3d0;
   background: #fff;
 }
 .auth-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #10b981;
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
 }
 
 @keyframes float {
@@ -129,7 +138,20 @@ body {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Print */
+/* Brand utility gradients */
+.brand-gradient {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #f59e0b 100%);
+}
+.brand-gradient-text {
+  background: linear-gradient(90deg, #34d399, #fbbf24, #fcd34d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.brand-mesh-dark {
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 45%, #451a03 100%);
+}
+
 @media print {
   header, .no-print, aside, [aria-hidden="true"], .fixed.z-\[100\] {
     display: none !important;

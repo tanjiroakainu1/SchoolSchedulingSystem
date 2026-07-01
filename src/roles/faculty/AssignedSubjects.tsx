@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { useAppData } from '../../context/AppDataContext';
 
@@ -11,7 +12,7 @@ export function AssignedSubjects() {
   const mySubjects = subjects.filter((s) => mySubjectIds.includes(s.id));
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Assigned Subjects" description="Subjects you are teaching this semester" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mySubjects.map((s) => (
@@ -30,6 +31,6 @@ export function AssignedSubjects() {
           </Card>
         ))}
       </div>
-    </div>
+    </PageShell>
   );
 }

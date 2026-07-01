@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Database, Upload, Download, RotateCcw } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { useToast } from '../../hooks/useToast';
@@ -24,13 +25,13 @@ export function BackupRestore() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Backup & Restore" description="Manage system data backup and recovery" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card title="Create Backup">
           <div className="text-center py-6">
-            <div className="inline-flex p-4 bg-blue-50 rounded-full text-blue-600 mb-4">
+            <div className="inline-flex p-4 bg-primary-50 rounded-full text-primary-600 mb-4">
               <Database size={32} />
             </div>
             <p className="text-sm text-gray-500 mb-1">Last backup: {lastBackup}</p>
@@ -60,6 +61,6 @@ export function BackupRestore() {
         </Card>
       </div>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { DataTable } from '../../components/ui/DataTable';
 import { useAppData } from '../../context/AppDataContext';
@@ -12,7 +13,7 @@ export function AssignedClassrooms() {
   const roomIds = [...new Set(mySections.map((s) => s.classroomId))];
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Assigned Classrooms" description="Rooms assigned to your classes" />
       <Card>
         <DataTable
@@ -40,6 +41,6 @@ export function AssignedClassrooms() {
           })}
         />
       </Card>
-    </div>
+    </PageShell>
   );
 }

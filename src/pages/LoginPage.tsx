@@ -136,7 +136,7 @@ export function LoginPage() {
   };
 
   return (
-    <PublicLayout variant="dark" className="bg-slate-950">
+    <PublicLayout variant="dark" className="bg-primary-950">
       <div className="relative min-h-[calc(100dvh-8rem)] overflow-hidden">
         <PublicMeshBackground />
 
@@ -152,14 +152,14 @@ export function LoginPage() {
           <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 xl:gap-10 items-start">
             {/* Brand panel */}
             <div className="xl:col-span-5 space-y-6 animate-fade-in">
-              <div className="inline-flex p-3.5 rounded-2xl bg-gradient-to-br from-primary-500 to-indigo-600 shadow-xl shadow-primary-900/40 ring-1 ring-white/20">
+              <div className="inline-flex p-3.5 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 shadow-xl shadow-primary-900/40 ring-1 ring-white/20">
                 <GraduationCap className="text-white" size={28} />
               </div>
               <div>
                 <p className="text-primary-300 text-sm font-bold uppercase tracking-widest mb-2">Welcome</p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
                   Sign in to your
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-sky-300 to-indigo-300 mt-1">
+                  <span className="block brand-gradient-text mt-1">
                     academic workspace
                   </span>
                 </h1>
@@ -391,7 +391,7 @@ export function LoginPage() {
                         className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 animate-slide-up"
                         style={{ animationDelay: `${i * 70}ms` }}
                       >
-                        <div className={`h-1.5 bg-gradient-to-r ${role.value === 'super-admin' ? 'from-purple-500 to-violet-600' : role.value === 'registrar' ? 'from-blue-500 to-cyan-500' : role.value === 'faculty' ? 'from-emerald-500 to-teal-500' : 'from-amber-500 to-orange-500'}`} />
+                        <div className={`h-1.5 bg-gradient-to-r ${role.value === 'super-admin' ? 'from-primary-600 to-primary-800' : role.value === 'registrar' ? 'from-teal-500 to-emerald-600' : role.value === 'faculty' ? 'from-emerald-500 to-primary-600' : 'from-accent-400 to-accent-600'}`} />
                         <div className="p-4 sm:p-5">
                           <div className="flex items-start gap-3">
                             <div className={`p-2.5 rounded-xl ${role.bgColor} ${role.color} shrink-0 shadow-sm`}>

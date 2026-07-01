@@ -20,7 +20,7 @@ interface DeveloperCreditProps {
 export function DeveloperCredit({ variant = 'footer', className = '' }: DeveloperCreditProps) {
   if (variant === 'badge') {
     return (
-      <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary-50 to-indigo-50 border border-primary-100/80 shadow-sm ${className}`}>
+      <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary-50 to-accent-50 border border-primary-100/80 shadow-sm ${className}`}>
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500" />
@@ -37,7 +37,7 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
     return (
       <p className={`text-xs text-gray-500 ${className}`}>
         Developed by{' '}
-        <span className="dev-name font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600">
+        <span className="dev-name font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">
           {DEVELOPER.name}
         </span>
         <span className="text-gray-400"> · {DEVELOPER.title}</span>
@@ -49,8 +49,8 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
     return (
       <div className={`inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 ${className}`}>
         <div className="relative">
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 to-purple-500 blur-lg opacity-40 animate-pulse" />
-          <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white font-extrabold text-lg sm:text-xl shadow-xl ring-2 ring-white/20">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-500 blur-lg opacity-40 animate-pulse" />
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary-500 via-accent-500 to-accent-600 flex items-center justify-center text-white font-extrabold text-lg sm:text-xl shadow-xl ring-2 ring-white/20">
             {DEVELOPER.initials}
           </div>
           <Sparkles size={14} className="absolute -top-1 -right-1 text-amber-300" />
@@ -88,7 +88,7 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
     return (
       <div className={`mx-3 mb-2 p-2.5 rounded-xl bg-gradient-to-br from-gray-50 to-primary-50/50 border border-gray-100 ${className}`}>
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-indigo-600 flex items-center justify-center text-[10px] font-bold text-white shrink-0 shadow-md">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center text-[10px] font-bold text-white shrink-0 shadow-md">
             {DEVELOPER.initials}
           </div>
           <div className="min-w-0">
@@ -103,7 +103,7 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
   if (variant === 'sidebar-collapsed') {
     return (
       <div className={`flex justify-center mb-2 ${className}`} title={`${DEVELOPER.role}: ${DEVELOPER.name}`}>
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-indigo-600 flex items-center justify-center text-[10px] font-bold text-white shadow-md ring-2 ring-primary-100">
+        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center text-[10px] font-bold text-white shadow-md ring-2 ring-primary-100">
           {DEVELOPER.initials}
         </div>
       </div>
@@ -112,10 +112,10 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
 
   if (variant === 'card') {
     return (
-      <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-primary-900 to-indigo-950 p-6 sm:p-10 text-white ${className}`}>
+      <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-950 via-primary-900 to-accent-950 p-6 sm:p-10 text-white ${className}`}>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-0 w-48 h-48 bg-primary-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-500/20 rounded-full blur-3xl" />
           <div className="absolute inset-0 dev-grid opacity-30" />
         </div>
         <div className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -147,8 +147,8 @@ export function DeveloperCredit({ variant = 'footer', className = '' }: Develope
   const isDark = variant === 'footer-dark';
   return (
     <div className={`flex flex-col items-center gap-3 pt-4 border-t ${isDark ? 'border-white/10' : 'border-gray-200/80'} ${className}`}>
-      <div className={`flex items-center gap-3 px-4 py-2.5 rounded-2xl ${isDark ? 'bg-white/5 ring-1 ring-white/10' : 'bg-gradient-to-r from-primary-50/80 to-indigo-50/80 ring-1 ring-primary-100/50'}`}>
-        <div className={`w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-lg ${isDark ? 'shadow-primary-900/50' : 'shadow-primary-500/25'}`}>
+      <div className={`flex items-center gap-3 px-4 py-2.5 rounded-2xl ${isDark ? 'bg-white/5 ring-1 ring-white/10' : 'bg-gradient-to-r from-primary-50/80 to-accent-50/80 ring-1 ring-primary-100/50'}`}>
+        <div className={`w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center text-xs font-bold text-white shadow-lg ${isDark ? 'shadow-primary-900/50' : 'shadow-primary-500/25'}`}>
           {DEVELOPER.initials}
         </div>
         <div className="text-left">

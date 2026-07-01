@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { DataTable } from '../../components/ui/DataTable';
 import { useAppData } from '../../context/AppDataContext';
@@ -19,7 +20,7 @@ export function ClassList() {
   const mySections = sections.filter((s) => s.instructorId === facultyId);
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Class List" description="Students enrolled in your classes" />
       {mySections.map((sec) => {
         const subj = subjects.find((s) => s.id === sec.subjectId);
@@ -40,6 +41,6 @@ export function ClassList() {
           </Card>
         );
       })}
-    </div>
+    </PageShell>
   );
 }

@@ -1,6 +1,7 @@
 import { Calendar, BookOpen, Building, Bell } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { StatsCard, PageHeader } from '../../components/ui/StatsCard';
+import { StatsCard, PageHeader, EmptyState } from '../../components/ui/StatsCard';
+import { PageShell, statsGridClass, contentGridClass } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { FacultyDashboardCharts, AnalyticsSectionHeader } from '../../components/charts';
@@ -17,37 +18,40 @@ export function FacultyDashboard() {
   const unread = notifications.filter((n) => !n.read).length;
 
   return (
-    <div className="animate-fade-in">
+    <PageShell>
       <PageHeader
         title="Faculty Dashboard"
         description={`Welcome back, ${user?.name}`}
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-5 sm:mb-6">
+      <div className={statsGridClass}>
         <StatsCard label="Teaching Load" value={`${mySections.length} classes`} icon={Calendar} color="green" />
-        <StatsCard label="Subjects" value={mySubjects.length} icon={BookOpen} color="blue" />
-        <StatsCard label="Classrooms" value={new Set(mySections.map((s) => s.classroomId)).size} icon={Building} color="purple" />
+        <StatsCard label="Subjects" value={mySubjects.length} icon={BookOpen} color="teal" />
+        <StatsCard label="Classrooms" value={new Set(mySections.map((s) => s.classroomId)).size} icon={Building} color="accent" />
         <StatsCard label="Notifications" value={unread} icon={Bell} color="amber" change="Unread" />
       </div>
 
       <AnalyticsSectionHeader title="Teaching Analytics" description="Your weekly load, class fill rates & schedule insights" />
       {facultyId && <FacultyDashboardCharts facultyId={facultyId} />}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      <div className={contentGridClass}>
         <Card title="Today's Schedule" hover>
           {mySections.length === 0 ? (
-            <p className="text-gray-500 text-sm">No classes scheduled</p>
+            <EmptyState
+              title="No classes scheduled"
+              description="Your teaching schedule will appear here once sections are assigned."
+            />
           ) : (
             <div className="space-y-3">
               {mySections.map((s) => {
                 const subj = subjects.find((sub) => sub.id === s.subjectId);
                 return (
-                  <div key={s.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <div key={s.id} className="flex justify-between items-center p-3.5 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100 hover:border-primary-100 transition-colors">
                     <div>
-                      <p className="font-medium">{subj?.name}</p>
+                      <p className="font-semibold text-gray-900">{subj?.name}</p>
                       <p className="text-sm text-gray-500">{s.day} · {s.startTime}–{s.endTime}</p>
                     </div>
-                    <span className="text-xs text-gray-500">{s.code}</span>
+                    <span className="text-xs font-bold text-primary-600 bg-primary-50 px-2 py-1 rounded-lg">{s.code}</span>
                   </div>
                 );
               })}
@@ -64,6 +68,6 @@ export function FacultyDashboard() {
           </div>
         </Card>
       </div>
-    </div>
+    </PageShell>
   );
 }

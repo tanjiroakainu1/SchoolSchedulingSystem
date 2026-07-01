@@ -1,5 +1,6 @@
 import { Printer } from 'lucide-react';
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { useAppData } from '../../context/AppDataContext';
@@ -20,7 +21,7 @@ export function PrintTimetable() {
   };
 
   return (
-    <div>
+    <PageShell>
       <PageHeader
         title="Print Personal Timetable"
         description="Preview and print your class schedule"
@@ -65,6 +66,6 @@ export function PrintTimetable() {
         </table>
       </Card>
       <ToastHost />
-    </div>
+    </PageShell>
   );
 }

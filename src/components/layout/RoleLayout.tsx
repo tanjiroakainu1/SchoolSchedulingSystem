@@ -12,7 +12,7 @@ interface RoleLayoutProps {
 
 function RoleLayoutInner({ navItems, basePath }: RoleLayoutProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-gray-100 flex">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50/50 via-white to-accent-50/40 flex">
       <RoleSidebar navItems={navItems} basePath={basePath} />
 
       <div className="flex-1 flex flex-col min-w-0 lg:min-h-screen">

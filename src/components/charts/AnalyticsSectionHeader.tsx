@@ -11,7 +11,7 @@ export function AnalyticsSectionHeader({
 }: AnalyticsSectionHeaderProps) {
   return (
     <div className="flex items-center gap-3 mb-4 sm:mb-5">
-      <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary-500 to-indigo-600 text-white shadow-lg shadow-primary-500/25">
+      <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/25">
         <BarChart3 size={18} />
       </div>
       <div>

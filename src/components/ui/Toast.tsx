@@ -31,13 +31,13 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: string) =
   const icons = {
     success: <CheckCircle size={18} className="text-green-500" />,
     error: <XCircle size={18} className="text-red-500" />,
-    info: <Info size={18} className="text-blue-500" />,
+    info: <Info size={18} className="text-primary-500" />,
   };
 
   const bg = {
     success: 'border-green-200 bg-green-50',
     error: 'border-red-200 bg-red-50',
-    info: 'border-blue-200 bg-blue-50',
+    info: 'border-primary-200 bg-primary-50',
   };
 
   return (

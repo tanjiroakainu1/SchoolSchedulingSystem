@@ -23,7 +23,7 @@ export function getUsersByRole(users: User[]) {
     .map(([role, value]) => ({
       name: role.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
       value,
-      fill: ROLE_CHART_COLORS[role] ?? CHART_COLORS.indigo,
+      fill: ROLE_CHART_COLORS[role] ?? CHART_COLORS.emerald,
     }));
 }
 

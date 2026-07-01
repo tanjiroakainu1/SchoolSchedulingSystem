@@ -1,6 +1,7 @@
 import { Calendar, Users, Building, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { StatsCard, PageHeader } from '../../components/ui/StatsCard';
+import { PageShell, statsGridClass } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { RegistrarOverviewCharts, AnalyticsSectionHeader } from '../../components/charts';
@@ -11,16 +12,16 @@ export function RegistrarDashboard() {
   const pending = conflicts.filter((c) => c.status === 'pending').length;
 
   return (
-    <div className="animate-fade-in">
+    <PageShell>
       <PageHeader
         title="Registrar Dashboard"
         description="Schedule creation and academic coordination"
       />
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-5 sm:mb-6">
-        <StatsCard label="Class Sections" value={sections.length} icon={Calendar} color="blue" />
+      <div className={statsGridClass}>
+        <StatsCard label="Class Sections" value={sections.length} icon={Calendar} color="teal" />
         <StatsCard label="Instructors" value={faculty.length} icon={Users} color="green" />
-        <StatsCard label="Classrooms" value={classrooms.length} icon={Building} color="purple" />
+        <StatsCard label="Classrooms" value={classrooms.length} icon={Building} color="accent" />
         <StatsCard label="Conflicts" value={pending} icon={AlertTriangle} color="red" change="Needs attention" />
       </div>
 
@@ -37,6 +38,6 @@ export function RegistrarDashboard() {
           <Link to="/registrar/timetable-reports"><Button variant="secondary" className="w-full">Timetable Reports</Button></Link>
         </div>
       </Card>
-    </div>
+    </PageShell>
   );
 }

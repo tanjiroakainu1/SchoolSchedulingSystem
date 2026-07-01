@@ -1,4 +1,5 @@
-import { PageHeader } from '../../components/ui/StatsCard';
+import { PageHeader } from '../../components/ui/StatsCard'
+import { PageShell } from '../../components/ui/PageShell';
 import { Card } from '../../components/ui/Card';
 import { DataTable } from '../../components/ui/DataTable';
 import { useAppData } from '../../context/AppDataContext';
@@ -10,7 +11,7 @@ export function ExamSchedule() {
   const studentExams = exams.filter((e) => subjectIds.includes(e.subjectId));
 
   return (
-    <div>
+    <PageShell>
       <PageHeader title="Examination Schedule" description="Midterm and final exam dates" />
       <Card>
         <DataTable
@@ -27,7 +28,7 @@ export function ExamSchedule() {
               subject: subj?.name ?? '—',
               type: (
                 <span className={`px-2 py-1 text-xs rounded-full capitalize ${
-                  e.type === 'midterm' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'
+                  e.type === 'midterm' ? 'bg-teal-100 text-teal-700' : 'bg-accent-100 text-accent-700'
                 }`}>{e.type}</span>
               ),
               date: e.date,
@@ -37,6 +38,6 @@ export function ExamSchedule() {
           })}
         />
       </Card>
-    </div>
+    </PageShell>
   );
 }
