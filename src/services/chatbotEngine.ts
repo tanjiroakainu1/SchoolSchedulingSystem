@@ -323,8 +323,8 @@ Click the **bell icon** 🔔 in the header to view notifications. Unread count s
     response: `🍔 **Navigation:**
 
 • **Hamburger button** (☰) — opens/closes sidebar on mobile; collapses on desktop
-• **Sidebar** — all role features, quick access to other roles, logout
-• **Header** — notifications bell + user info` },
+• **Sidebar** — all role features and quick access to switch roles
+• **Header** — notifications bell, user info, and **Logout** button` },
 
   { keywords: ['forgot password', 'reset password'], priority: 7,
     response: `🔑 In **demo mode**, all accounts use password: \`${DEMO_PASSWORD}\`\n\nFor a real deployment, password reset would email a secure link. Try logging in with the demo password or use **Quick Access** for instant entry!` },

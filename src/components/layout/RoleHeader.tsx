@@ -10,7 +10,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 export function RoleHeader() {
   const { user, logout } = useAuth();
   const { notifications, setNotifications } = useAppData();
-  const { isOpen, toggle, toggleCollapse } = useSidebar();
+  const { isOpen, toggle, toggleCollapse, close } = useSidebar();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -30,6 +30,7 @@ export function RoleHeader() {
   }, []);
 
   const handleLogout = () => {
+    close();
     logout();
     navigate('/');
   };
@@ -123,11 +124,12 @@ export function RoleHeader() {
 
             <button
               onClick={handleLogout}
-              className="p-2.5 rounded-xl hover:bg-red-50 text-gray-500 hover:text-red-600 transition-colors sm:hidden"
+              className="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors border border-transparent hover:border-red-100"
               title="Logout"
               aria-label="Logout"
             >
-              <LogOut size={18} />
+              <LogOut size={18} className="shrink-0" />
+              <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
         </div>
