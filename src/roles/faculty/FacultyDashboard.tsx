@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StatsCard, PageHeader } from '../../components/ui/StatsCard';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { FacultyDashboardCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 import { useAuth } from '../../context/AuthContext';
 import { useFacultyId } from '../../hooks/useFacultyId';
@@ -28,6 +29,9 @@ export function FacultyDashboard() {
         <StatsCard label="Classrooms" value={new Set(mySections.map((s) => s.classroomId)).size} icon={Building} color="purple" />
         <StatsCard label="Notifications" value={unread} icon={Bell} color="amber" change="Unread" />
       </div>
+
+      <AnalyticsSectionHeader title="Teaching Analytics" description="Your weekly load, class fill rates & schedule insights" />
+      {facultyId && <FacultyDashboardCharts facultyId={facultyId} />}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <Card title="Today's Schedule" hover>

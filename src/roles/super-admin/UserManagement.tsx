@@ -5,6 +5,7 @@ import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
 import { DataTable, FormField, inputClass, selectClass } from '../../components/ui/DataTable';
+import { UserManagementCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 import { useToast } from '../../hooks/useToast';
 import type { UserRole } from '../../types';
@@ -87,6 +88,10 @@ export function UserManagement() {
         description="Register users and assign roles"
         action={<Button onClick={openCreate}><Plus size={16} /> Add User</Button>}
       />
+
+      <AnalyticsSectionHeader title="User Analytics" description="Role mix, department spread & registration growth" />
+      <UserManagementCharts />
+
       <Card>
         <DataTable
           columns={[

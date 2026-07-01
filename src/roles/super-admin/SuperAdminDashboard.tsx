@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StatsCard, PageHeader } from '../../components/ui/StatsCard';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { SuperAdminCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 
 export function SuperAdminDashboard() {
@@ -22,6 +23,9 @@ export function SuperAdminDashboard() {
         <StatsCard label="Subjects" value={subjects.length} icon={BookOpen} color="green" />
         <StatsCard label="Pending Conflicts" value={pendingConflicts} icon={AlertTriangle} color="red" />
       </div>
+
+      <AnalyticsSectionHeader title="System Analytics" description="Growth trends, roles, enrollment & weekly density" />
+      <SuperAdminCharts />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <Card title="Quick Actions" hover>

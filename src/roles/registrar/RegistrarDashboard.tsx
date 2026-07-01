@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StatsCard, PageHeader } from '../../components/ui/StatsCard';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { RegistrarOverviewCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 
 export function RegistrarDashboard() {
@@ -22,6 +23,9 @@ export function RegistrarDashboard() {
         <StatsCard label="Classrooms" value={classrooms.length} icon={Building} color="purple" />
         <StatsCard label="Conflicts" value={pending} icon={AlertTriangle} color="red" change="Needs attention" />
       </div>
+
+      <AnalyticsSectionHeader title="Scheduling Analytics" description="Weekly density, enrollment, conflicts & room usage" />
+      <RegistrarOverviewCharts />
 
       <Card title="Quick Actions" hover>
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">

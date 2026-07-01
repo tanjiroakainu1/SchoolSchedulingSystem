@@ -2,6 +2,7 @@ import { Download, FileText } from 'lucide-react';
 import { PageHeader } from '../../components/ui/StatsCard';
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
+import { SystemReportsCharts, AnalyticsSectionHeader } from '../../components/charts';
 import { useAppData } from '../../context/AppDataContext';
 import { useToast } from '../../hooks/useToast';
 
@@ -24,6 +25,9 @@ export function SystemReports() {
   return (
     <div>
       <PageHeader title="System Reports" description="Generate system-wide reports and analytics" />
+
+      <AnalyticsSectionHeader title="Report Analytics" description="Workload, rooms, subjects, conflicts & system trends" />
+      <SystemReportsCharts />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {reportTypes.map((r) => (
