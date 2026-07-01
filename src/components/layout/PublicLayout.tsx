@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { GraduationCap, Menu, X, Home, LogIn, UserPlus } from 'lucide-react';
 import { useState } from 'react';
-import { Button } from '../ui/Button';
 import { DeveloperCredit } from '../ui/DeveloperCredit';
 import { SITE } from '../../config/site';
 
@@ -29,7 +28,8 @@ export function PublicNavbar({ variant = 'light' }: PublicNavbarProps) {
   const navLinks = [
     { to: '/', label: 'Home', icon: Home },
     { to: '/#how-it-works', label: 'How It Works', icon: null, isAnchor: true },
-    { to: '/login', label: 'Login', icon: LogIn },
+    { to: '/login', label: 'Login', icon: LogIn, matchTab: false },
+    { to: '/login?tab=register', label: 'Register', icon: UserPlus, matchTab: true },
   ];
 
   return (
@@ -66,17 +66,16 @@ export function PublicNavbar({ variant = 'light' }: PublicNavbarProps) {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={linkClass(location.pathname === link.to)}
+                  className={linkClass(
+                    link.matchTab
+                      ? location.pathname === '/login' && location.search.includes('tab=register')
+                      : location.pathname === link.to && !location.search.includes('tab=register')
+                  )}
                 >
                   {link.label}
                 </Link>
               )
             )}
-            <Link to="/login?tab=register" className="ml-2">
-              <Button size="sm" className="shadow-md shadow-primary-600/20">
-                <UserPlus size={14} /> Register
-              </Button>
-            </Link>
           </nav>
 
           <button
@@ -107,17 +106,16 @@ export function PublicNavbar({ variant = 'light' }: PublicNavbarProps) {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
-                  className={`block ${linkClass(location.pathname === link.to)}`}
+                  className={`block ${linkClass(
+                    link.matchTab
+                      ? location.pathname === '/login' && location.search.includes('tab=register')
+                      : location.pathname === link.to && !location.search.includes('tab=register')
+                  )}`}
                 >
                   {link.label}
                 </Link>
               )
             )}
-            <Link to="/login?tab=register" onClick={() => setMenuOpen(false)} className="block pt-2">
-              <Button className="w-full" size="md">
-                <UserPlus size={16} /> Register
-              </Button>
-            </Link>
           </nav>
         )}
       </div>
